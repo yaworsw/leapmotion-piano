@@ -2,7 +2,7 @@
   (:use [overtone.live]
         [airguitar.detector-factory])
   (:import [com.leapmotion.leap Controller]
-           [airguitar.detectors Drums]))
+           [airguitar.detectors Piano]))
 
 (def controller (new Controller))
 (def detector   (detector-factory "piano" "piano"))

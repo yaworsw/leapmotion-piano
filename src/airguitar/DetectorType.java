@@ -4,7 +4,7 @@ public enum DetectorType {
 
   PIANO ("piano");
 
-  public static final DetectorType DEFAULT = DetectorType.DRUMS;
+  public static final DetectorType DEFAULT = DetectorType.PIANO;
 
   private String name;
 
