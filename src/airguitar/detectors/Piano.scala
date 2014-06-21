@@ -15,7 +15,8 @@ class Piano(instrument: Instrument) extends Detector(instrument: Instrument) {
 
   override def onKeyTapGesture(gesture: KeyTapGesture) {
     val x: Float = gesture.position().getX()
-    super.getInstrument().play(x.toInt)
+    var n: Int   = ((((x + 120) * 50) / 240) + 50).toInt;
+    super.getInstrument().play(n)
   }
 
 }

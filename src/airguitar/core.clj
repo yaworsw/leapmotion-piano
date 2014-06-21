@@ -4,7 +4,7 @@
   (:import [com.leapmotion.leap Controller]))
 
 (def controller (new Controller))
-(def detector   (detector-factory "piano" "beep"))
+(def detector   (detector-factory "piano" "piano"))
 
 (defn -main [& args]
   (.addListener controller detector))
