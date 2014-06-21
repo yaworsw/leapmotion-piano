@@ -2,6 +2,7 @@ package airguitar;
 
 public enum InstrumentType {
 
+  BEEP  ("beep"),
   PIANO ("piano");
 
   public static final InstrumentType DEFAULT = InstrumentType.PIANO;

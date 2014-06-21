@@ -5,7 +5,7 @@
            [airguitar.detectors Piano]))
 
 (def controller (new Controller))
-(def detector   (detector-factory "piano" "piano"))
+(def detector   (detector-factory "piano" "beep"))
 
 (defn -main [& args]
   (.addListener controller detector))
