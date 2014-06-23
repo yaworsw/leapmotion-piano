@@ -1,9 +1,9 @@
 (ns airguitar.detector-factory
-  (:import [airguitar DetectorType])
-  (:use [airguitar.instrument-factory]))
+  (:use [airguitar.detectors.piano]
+        [airguitar.instrument-factory]))
 
-(defn detector-factory [type, instrument-type]
-  (if (string? type)
-    (detector-factory (. DetectorType get type) instrument-type)
-    (let [instrument (instrument-factory instrument-type)]
-      (.build type instrument))))
+(defn detector-factory [^String type, ^String instrument-type]
+  (let [instrument (instrument-factory instrument-type)]
+    (case type
+      "piano" (airguitar.detectors.Piano. instrument)
+      (airguitar.detectors.Piano. instrument))))

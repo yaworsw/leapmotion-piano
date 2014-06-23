@@ -1,11 +1,10 @@
 (ns airguitar.instruments.piano
-  (:use [overtone.inst.piano])
-  (:import [airguitar.Instrument])
+  (:use    [overtone.live]
+           [overtone.inst.piano])
+  (:import [airguitar BasicInstrument])
   (:gen-class
-    :name airguitar.instruments.Piano
-    :implements [airguitar.Instrument]
-    :constructors {[] []}
-    :methods []))
+    :name       airguitar.instruments.Piano
+    :implements [airguitar.BasicInstrument]))
 
-(defn -play [this note]
+(defn -play [this ^long note]
   (piano note))

@@ -1,7 +1,7 @@
 (ns airguitar.instrument-factory
-  (:import [airguitar InstrumentType]))
+  (:use [airguitar.instruments.piano]))
 
-(defn instrument-factory [type]
-  (if (string? type)
-    (instrument-factory (. InstrumentType get type))
-    (.build type)))
+(defn instrument-factory [^String type]
+  (case type
+    "piano" (airguitar.instruments.Piano.)
+    (airguitar.instruments.Piano.)))

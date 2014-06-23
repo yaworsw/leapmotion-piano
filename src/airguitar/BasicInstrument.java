@@ -1,6 +1,6 @@
 package airguitar;
 
-public interface Instrument {
+public interface BasicInstrument {
 
   public void play(int note);
 
