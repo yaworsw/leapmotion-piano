@@ -1,6 +1,6 @@
 (ns airguitar.instruments.beep
-  (:use     [airguitar.basic-instrument]
-            [overtone.live])
+  (:use [airguitar.basic-instrument]
+        [overtone.live])
   (:gen-class
     :name       airguitar.instruments.Beep
     :implements [airguitar.BasicInstrument]))

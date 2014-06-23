@@ -10,8 +10,8 @@
     :init         init
     :state        instrument))
 
-(def min-x -120)
-(def max-x  120)
+(def min-x -135)
+(def max-x  135)
 
 (def note-min  50)
 (def note-max 100)

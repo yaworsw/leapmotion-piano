@@ -5,7 +5,9 @@
   (:gen-class
     :main true))
 
-(Controller.) ; For some reason the JVM will crash if a leap controller isn't instantiated before main is ran
+
+(def controller (Controller.))
+(def detector   (detector-factory "piano" "drums"))
 
 (defn cli-options
   "Command line arguments
@@ -17,5 +19,4 @@
   "Application entry point"
   {  }
   [& args]
-  (let [controller (Controller.)]
-    (.addListener controller (detector-factory "piano" "beep"))))
+  (.addListener controller detector))
