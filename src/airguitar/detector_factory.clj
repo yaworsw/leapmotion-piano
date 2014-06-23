@@ -1,6 +1,7 @@
 (ns airguitar.detector-factory
-  (:use [airguitar.detectors.piano]
-        [airguitar.instrument-factory]))
+  (:use     [airguitar.instrument-factory])
+  (:require [airguitar.detectors.piano])
+  (:import  [airguitar.detectors Piano]))
 
 (defn detector-factory [^String type, ^String instrument-type]
   (let [instrument (instrument-factory instrument-type)]

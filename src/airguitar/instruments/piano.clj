@@ -1,7 +1,8 @@
 (ns airguitar.instruments.piano
-  (:use    [overtone.live]
-           [overtone.inst.piano])
-  (:import [airguitar BasicInstrument])
+  (:use     [airguitar.basic-instrument]
+            [overtone.live]
+            [overtone.inst.piano])
+  (:import  [airguitar BasicInstrument])
   (:gen-class
     :name       airguitar.instruments.Piano
     :implements [airguitar.BasicInstrument]))

@@ -1,14 +1,23 @@
 (ns airguitar.detectors.piano
-  (:import [com.leapmotion.leap Controller Gesture Listener]
-           [airguitar BasicInstrument GestureIterator])
+  (:require [airguitar.basic-instrument])
+  (:import  [com.leapmotion.leap Controller Gesture Listener]
+            [airguitar BasicInstrument])
+  (:use     [airguitar.leap.utils])
   (:gen-class
     :name         airguitar.detectors.Piano
-    :extends      [com.leapmotion.leap.Listener]
+    :extends      com.leapmotion.leap.Listener
+    :constructors {[airguitar.BasicInstrument] []}
     :init         init
     :state        instrument))
 
-(def key-tap-gesture
-  (. com.leapmotion.leap.Gesture$Type TYPE_KEY_TAP))
+(def min-x -120)
+(def max-x  120)
+
+(def note-min  50)
+(def note-max 100)
+
+(defn- x-to-note [x]
+  (int (+ (/ (* (- x min-x) (- note-max note-min)) (- max-x min-x)) note-min)))
 
 (defn -init [^airguitar.BasicInstrument instrument]
   [[] instrument])
@@ -18,8 +27,9 @@
 
 (defn -onFrame [this ^com.leapmotion.leap.Controller controller]
   (let [frame    (. controller frame)
-        gestures (GestureIterator. (.getGestures frame))]
-    (while (.hasNext gestures)
-      (let [gesture (.next gestures)
-            x       (int (.getX (.position gesture)))]
-        (.play (.instrument this) x)))))
+        gestures (gesture-list-to-list (.gestures frame))]
+    (doseq [gesture gestures]
+      (let [x          (.getX (.position gesture))
+            note       (x-to-note x)
+            instrument (.instrument this)]
+        (.play instrument note)))))

@@ -18,5 +18,4 @@
   {  }
   [& args]
   (let [controller (Controller.)]
-    (.addListener controller (detector-factory "piano" "piano")))
-  (read-line))
+    (.addListener controller (detector-factory "piano" "beep"))))
