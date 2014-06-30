@@ -1,1 +1,1 @@
-# Leap Motion Air Guitar
+# Leap Motion Piano
